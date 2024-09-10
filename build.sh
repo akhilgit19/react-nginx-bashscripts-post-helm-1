@@ -21,7 +21,7 @@ aws s3 rm s3://testuploadbucket0/new_value.txt
 sudo touch new_value.txt
 sudo chmod 777 new_value.txt
 sudo echo $git_commit > new_value.txt
-aws s3 cp new_value.txt s3://estuploadbucket0/
+aws s3 cp new_value.txt s3://testuploadbucket0/
 sudo rm new_value.txt
 
 
