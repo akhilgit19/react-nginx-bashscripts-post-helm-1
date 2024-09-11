@@ -7,7 +7,7 @@ cd gold/
 sudo git clone https://github.com/akhilgit19/Gold_Site_Ecommerce-1.git
 cd Gold_Site_Ecommerce-1
 git_commit=$(sudo git rev-parse HEAD)
-sudo docker build -t react-nginx:$git_commit -f golddockerfile .
+sudo docker build -t react-nginx:$git_commit -f golddockerfile-1 .
 sudo docker tag react-nginx:$git_commit akhilpagadapoola/react-nginx:$git_commit ##make sure you did docker login
 sudo docker push akhilpagadapoola/react-nginx:$git_commit
 aws s3 rm s3://testuploadbucket0/new_value.txt
