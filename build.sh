@@ -7,8 +7,9 @@ cd gold/
 sudo git clone https://github.com/akhilgit19/Gold_Site_Ecommerce-1.git
 cd Gold_Site_Ecommerce-1
 git_commit=$(sudo git rev-parse HEAD)
-sudo apt install nodejs
-sudo apt install npm
+#if you are doing for the first time install node and npm
+#sudo apt install nodejs 
+#sudo apt install npm
 sudo npm install react-scripts
 sudo npm run build
 sudo chmod 777 build
