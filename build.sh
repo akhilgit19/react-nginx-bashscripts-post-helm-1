@@ -10,7 +10,7 @@ git_commit=$(sudo git rev-parse HEAD)
 ##if you are doing for the first time install node and npm
 ##sudo apt install nodejs 
 ##sudo apt install npm
-##sudo npm install react-scripts
+sudo npm install react-scripts
 sudo npm run build
 sudo chmod 777 build
 sudo docker build -t react-nginx:$git_commit -f golddockerfile1 .
