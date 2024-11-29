@@ -14,14 +14,14 @@ sudo npm install react-scripts
 sudo npm run build
 sudo chmod 777 build
 current_date=$(date +%d%m%Y)
-aws s3api put-object --bucket testuploadbucket0 --key "${current_date}/"
-aws s3 cp --recursive build "s3://testuploadbucket0/${current_date}/$(basename build)"
+aws s3api put-object --bucket testuploadbucket01 --key "${current_date}/"
+aws s3 cp --recursive build "s3://testuploadbucket01/${current_date}/$(basename build)"
 sudo docker build -t react-nginx:$git_commit -f golddockerfile1 .
 sudo docker tag react-nginx:$git_commit akhilpagadapoola/react-nginx:$git_commit ##make sure you did docker login
 sudo docker push akhilpagadapoola/react-nginx:$git_commit
-aws s3 rm s3://testuploadbucket0/new_value.txt
+aws s3 rm s3://testuploadbucket01/new_value.txt
 sudo touch new_value.txt
 sudo chmod 777 new_value.txt
 sudo echo $git_commit > new_value.txt
-aws s3 cp new_value.txt s3://testuploadbucket0/
+aws s3 cp new_value.txt s3://testuploadbucket01/
 sudo rm new_value.txt
