@@ -18,6 +18,10 @@ aws s3api put-object --bucket testuploadbucket01 --key "${current_date}/"
 aws s3 cp --recursive build "s3://testuploadbucket01/${current_date}/$(basename build)"
 sudo docker build -t react-nginx:$git_commit -f golddockerfile1 .
 sudo docker tag react-nginx:$git_commit akhilpagadapoola/react-nginx:$git_commit ##make sure you did docker login
+sudo touch image_vulnerability.txt
+sudo chmod 777 image_vulnerability.txt
+trivy image akhilpagadapoola/react-nginx > image_vulnerability.txt
+echo "Please find the attached Trivy file file." | mutt -s "Image Vulnerability" -a image_vulnerability.txt -- akhilpagadapoola123@gmail.com
 sudo docker push akhilpagadapoola/react-nginx:$git_commit
 aws s3 rm s3://testuploadbucket01/new_value.txt
 sudo touch new_value.txt
