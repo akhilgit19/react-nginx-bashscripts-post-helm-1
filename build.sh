@@ -17,7 +17,8 @@ current_date=$(date +%d%m%Y)
 aws s3api put-object --bucket testuploadbucket01 --key "${current_date}/"
 aws s3 cp --recursive build "s3://testuploadbucket01/${current_date}/$(basename build)"
 sudo docker build -t react-nginx:$git_commit -f golddockerfile1 .
-sudo docker tag react-nginx:$git_commit akhilpagadapoola/react-nginx:$git_commit ##make sure you did docker login
+##make sure you did docker login
+sudo docker tag react-nginx:$git_commit akhilpagadapoola/react-nginx:$git_commit 
 sudo touch image_vulnerability.txt
 sudo chmod 777 image_vulnerability.txt
 trivy image akhilpagadapoola/react-nginx > image_vulnerability.txt
