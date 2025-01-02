@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/react-chart/
+cd /home/ubuntu/react-chart/helmchart
 aws s3 cp s3://testuploadbucket01/old_value.txt .
 aws s3 cp s3://testuploadbucket01/new_value.txt .
 old_value=$(cat old_value.txt)
