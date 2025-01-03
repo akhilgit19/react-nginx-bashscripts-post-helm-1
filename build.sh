@@ -19,13 +19,13 @@ aws s3 cp --recursive build "s3://testuploadbucket01/${current_date}/$(basename 
 sudo docker build -t react-nginx:$git_commit -f golddockerfile1 .
 ##make sure you did docker login
 sudo docker tag react-nginx:$git_commit akhilpagadapoola/react-nginx:$git_commit 
-sudo touch image_vulnerability.txt
-sudo chmod 777 image_vulnerability.txt
-trivy image akhilpagadapoola/react-nginx > image_vulnerability.txt
-echo "Starting slack.sh..." 
-# /home/ubuntu/gold/Gold_Site_Ecommerce-1/slack.sh
-. slack.sh
-echo "Please find the attached Trivy file file." | mutt -s "Image Vulnerability" -a image_vulnerability.txt -- akhilpagadapoola123@gmail.com
+# sudo touch image_vulnerability.txt
+# sudo chmod 777 image_vulnerability.txt
+# trivy image akhilpagadapoola/react-nginx > image_vulnerability.txt
+# echo "Starting slack.sh..." 
+# # /home/ubuntu/gold/Gold_Site_Ecommerce-1/slack.sh
+# . slack.sh
+# echo "Please find the attached Trivy file file." | mutt -s "Image Vulnerability" -a image_vulnerability.txt -- akhilpagadapoola123@gmail.com
 sudo docker push akhilpagadapoola/react-nginx:$git_commit
 aws s3 rm s3://testuploadbucket01/new_value.txt
 sudo touch new_value.txt
